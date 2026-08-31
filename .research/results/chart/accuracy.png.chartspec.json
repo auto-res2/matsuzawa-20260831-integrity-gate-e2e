@@ -1,0 +1,42 @@
+{
+  "spec": {
+    "data": {
+      "values": [
+        {
+          "method": "Ours (MLP)",
+          "accuracy": "metric:proposed.accuracy"
+        },
+        {
+          "method": "Baseline (logreg)",
+          "accuracy": "metric:comparative-1.accuracy"
+        }
+      ]
+    },
+    "mark": "bar",
+    "width": 260,
+    "height": 200,
+    "encoding": {
+      "x": {
+        "field": "method",
+        "type": "nominal",
+        "axis": {
+          "labelAngle": 0
+        },
+        "title": null
+      },
+      "y": {
+        "field": "accuracy",
+        "type": "quantitative",
+        "scale": {
+          "domain": [
+            0,
+            1
+          ]
+        },
+        "title": "Test accuracy (mean of 5 seeds)"
+      }
+    }
+  },
+  "format": "png",
+  "renderer": "vl-convert-python 1.9.0"
+}

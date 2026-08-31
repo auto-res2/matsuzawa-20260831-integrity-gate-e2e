@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\input{values.tex}
+
+\title{A Hidden Layer Is All XOR Needs:\\
+An End-to-End Integrity-Gated Report}
+\author{AIRAS automated research pipeline}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We revisit the classical observation that linear classifiers cannot
+separate XOR-structured data, as an end-to-end exercise of a
+verification pipeline in which every reported number is bound to a
+recorded execution. Averaged over five random seeds, a one-hidden-layer
+perceptron (the proposed model) reaches a test accuracy of
+\airasval{acc_ours}~($\pm$\airasval{acc_ours_std}) on synthetic XOR
+blobs, while a logistic-regression baseline reaches
+\airasval{acc_baseline}~($\pm$\airasval{acc_baseline_std}), a relative
+improvement of \airasval{acc_gain_pct}\%. Every value, table, and chart
+in this report is generated deterministically from the run outputs and
+cross-checked against the execution platform's stored artifacts.
+\end{abstract}
+
+\section{Setup}
+The dataset consists of four Gaussian blobs at the corners of a square,
+labeled XOR-style, so the two classes are not linearly separable. Both
+models are trained with full-batch gradient descent for
+\airasval{epochs} epochs on \airasval{n_train} training points and
+evaluated on \airasval{n_test} held-out points; every configuration is
+repeated over five random seeds and reported as mean and standard
+deviation. The construction follows the textbook XOR argument, first
+popularized in \unverified{1969}.
+
+\section{Results}
+Table~\ref{tab:main_results} summarizes the outcome. The linear
+baseline stays near chance at \airasval{acc_baseline}, while the
+proposed one-hidden-layer model reaches \airasval{acc_ours} — an
+absolute accuracy gap of \airasval{acc_gap}. Figure~\ref{fig:accuracy}
+shows the same comparison graphically.
+
+\input{tables/main_results.tex}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{images/chart/accuracy.png}
+\caption{Test accuracy of the proposed model and the linear baseline.
+Data points are resolved from the measured metrics at render time.}
+\label{fig:accuracy}
+\end{figure}
+
+\section{Conclusion}
+The expected separation holds: the non-linear model solves the task the
+linear one cannot. More importantly for this report, the number you just
+read was not typed by anyone — it was computed from the run outputs,
+regenerated at verification time, and matched byte-for-byte against the
+execution platform's stored results before this PDF was allowed to
+exist.
+
+\end{document}

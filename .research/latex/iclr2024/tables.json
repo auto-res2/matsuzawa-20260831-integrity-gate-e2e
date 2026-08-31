@@ -1,0 +1,36 @@
+{
+  "tables": [
+    {
+      "key": "main_results",
+      "caption": "Test accuracy on XOR blobs, mean and standard deviation over five seeds.",
+      "label": null,
+      "columns": [
+        {
+          "header": "Accuracy",
+          "ref_path": "accuracy",
+          "round": 3
+        },
+        {
+          "header": "Std.",
+          "ref_path": "accuracy_std",
+          "round": 3
+        },
+        {
+          "header": "Final loss",
+          "ref_path": "loss.final",
+          "round": 3
+        }
+      ],
+      "rows": [
+        {
+          "run_id": "proposed",
+          "label": "Ours (one-hidden-layer MLP)"
+        },
+        {
+          "run_id": "comparative-1",
+          "label": "Baseline (logistic regression)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "values": [
+    {
+      "key": "acc_ours",
+      "op": "value",
+      "refs": [
+        "proposed.accuracy"
+      ],
+      "round": 3,
+      "value": 0.9650000000000001,
+      "display": "0.965"
+    },
+    {
+      "key": "acc_ours_std",
+      "op": "value",
+      "refs": [
+        "proposed.accuracy_std"
+      ],
+      "round": 3,
+      "value": 0.008660254037844393,
+      "display": "0.009"
+    },
+    {
+      "key": "acc_baseline",
+      "op": "value",
+      "refs": [
+        "comparative-1.accuracy"
+      ],
+      "round": 3,
+      "value": 0.475,
+      "display": "0.475"
+    },
+    {
+      "key": "acc_baseline_std",
+      "op": "value",
+      "refs": [
+        "comparative-1.accuracy_std"
+      ],
+      "round": 3,
+      "value": 0.043011626335213146,
+      "display": "0.043"
+    },
+    {
+      "key": "acc_gain_pct",
+      "op": "pct_improve",
+      "refs": [
+        "proposed.accuracy",
+        "comparative-1.accuracy"
+      ],
+      "round": 1,
+      "value": 103.15789473684214,
+      "display": "103.2"
+    },
+    {
+      "key": "acc_gap",
+      "op": "value",
+      "refs": [
+        "comparison.gap"
+      ],
+      "round": 3,
+      "value": 0.4900000000000001,
+      "display": "0.490"
+    },
+    {
+      "key": "epochs",
+      "op": "value",
+      "refs": [
+        "proposed.epochs"
+      ],
+      "round": 0,
+      "value": 400.0,
+      "display": "400"
+    },
+    {
+      "key": "n_train",
+      "op": "value",
+      "refs": [
+        "proposed.n_train"
+      ],
+      "round": 0,
+      "value": 800.0,
+      "display": "800"
+    },
+    {
+      "key": "n_test",
+      "op": "value",
+      "refs": [
+        "proposed.n_test"
+      ],
+      "round": 0,
+      "value": 200.0,
+      "display": "200"
+    }
+  ]
+}
