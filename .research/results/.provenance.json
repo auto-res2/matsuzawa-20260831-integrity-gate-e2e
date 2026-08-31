@@ -1,0 +1,16 @@
+{
+  "dirs": {
+    "comparative-1": {
+      "execution_id": "f629c87f-7659-4ffb-a2ea-3b07ac35e3e1",
+      "commit_hash": "1001aa772cbabfcecfdf18ab14d0dca207cc96a4"
+    },
+    "comparison": {
+      "execution_id": "f629c87f-7659-4ffb-a2ea-3b07ac35e3e1",
+      "commit_hash": "1001aa772cbabfcecfdf18ab14d0dca207cc96a4"
+    },
+    "proposed": {
+      "execution_id": "f629c87f-7659-4ffb-a2ea-3b07ac35e3e1",
+      "commit_hash": "1001aa772cbabfcecfdf18ab14d0dca207cc96a4"
+    }
+  }
+}
