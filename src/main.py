@@ -8,9 +8,16 @@ convenient for external executors that run a single entry command.
 from __future__ import annotations
 
 import json
+import time
 
 import hydra
 from omegaconf import DictConfig
+
+# Managed executors capture output files from the working directory with a
+# periodic sync; a run that exits within seconds of its last write can end
+# before any sync happens, and its results are lost. Idle at the end of
+# online modes so at least one sync observes the finished files.
+OUTPUT_SYNC_GRACE_SECONDS = 90
 
 from src.evaluate import aggregate
 from src.train import RUN_CONFIGS, train_run
@@ -49,12 +56,15 @@ def main(cfg: DictConfig) -> None:
 
     if mode == "sanity":
         _print_sanity_verdict(all_metrics)
-    elif mode == "pilot":
+        return
+    if mode == "pilot":
         print("PILOT_VALIDATION: PASS")
         print(
             "PILOT_VALIDATION_SUMMARY: "
             + json.dumps({r: m["accuracy"] for r, m in all_metrics.items()})
         )
+    print(f"results written; idling {OUTPUT_SYNC_GRACE_SECONDS}s for output sync")
+    time.sleep(OUTPUT_SYNC_GRACE_SECONDS)
 
 
 if __name__ == "__main__":
